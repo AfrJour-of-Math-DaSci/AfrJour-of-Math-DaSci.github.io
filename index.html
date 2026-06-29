@@ -556,6 +556,75 @@ footer a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy);
 :root.dark .emblem img {
   filter: brightness(0.95) saturate(1.1);
 }
+
+/* === Indexing strip === */
+.indexing-strip {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.indexing-strip .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.indexing-strip .label { color: var(--burgundy); font-weight: 500; }
+.indexing-strip .sep { color: var(--line-strong); }
+.indexing-strip .entry { color: var(--ink); font-weight: 500; }
+
+/* === Editorial-criterion callout === */
+.criterion {
+  border-left: 3px solid var(--gold);
+  padding: 4px 0 4px 18px;
+  margin: 22px 0 26px;
+  max-width: 720px;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* === News / updates === */
+.news-list {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.news-item .date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--burgundy);
+  text-transform: uppercase;
+}
+.news-item .entry {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.news-item code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--burgundy);
+  background: var(--cream);
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+@media (max-width: 720px) {
+  .news-item { grid-template-columns: 1fr; gap: 4px; }
+}
 </style>
 </head>
 <body>
@@ -569,6 +638,7 @@ footer a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy);
       <a href="#scope" data-en="Scope" data-fr="Portée">Scope</a>
       <a href="#sections" data-en="Sections" data-fr="Sections">Sections</a>
       <a href="#board" data-en="Editorial Board" data-fr="Comité éditorial">Editorial Board</a>
+      <a href="#news" data-en="Updates" data-fr="Actualités">Updates</a>
       <a href="#authors" data-en="Authors" data-fr="Auteurs">Authors</a>
       <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
         <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -613,11 +683,28 @@ footer a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy);
   </div>
 </div>
 
+<div class="indexing-strip" aria-label="Planned indexing">
+  <div class="container">
+    <span class="label" data-en="Indexing — applications planned" data-fr="Indexation — candidatures prévues">Indexing — applications planned</span>
+    <span class="sep">·</span>
+    <span class="entry">DOAJ</span>
+    <span class="sep">·</span>
+    <span class="entry">Crossref</span>
+    <span class="sep">·</span>
+    <span class="entry">MathSciNet</span>
+    <span class="sep">·</span>
+    <span class="entry">zbMATH</span>
+    <span class="sep">·</span>
+    <span class="entry">AJOL</span>
+  </div>
+</div>
+
 <section id="scope">
   <div class="container">
     <div class="eyebrow" data-en="Aims &amp; Scope" data-fr="Objectifs et portée">Aims &amp; Scope</div>
     <h2 data-en="What we publish" data-fr="Ce que nous publions">What we publish</h2>
     <p>The work we print has to be methodologically rigorous and societally relevant — across pure and applied math, statistics, theoretical computer science, optimization, ML and AI, scientific software, and data science. We take full research articles, short notes, surveys, software papers, and data papers. Every submission has to show a clear mathematical, statistical, algorithmic, or computational contribution. Purely descriptive applied work is out of scope.</p>
+    <p class="criterion">We assess methodological correctness and the clarity of the contribution — not prospective citation impact, topical fashion, or fit with editor priors.</p>
     <p>The journal runs bilingually: English is primary, French submissions are accepted with an extended English abstract.</p>
 
     <div class="areas">
@@ -807,6 +894,27 @@ footer a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy);
       <strong>The founding editorial committee will be announced in Q3 2026.</strong> The journal is led by an Editor-in-Chief, two Co-Editors covering the methodological and applied sides, and 15 to 20 Associate Editors organized by section, with an international Advisory Board sitting alongside.
       <br><br>
       The committee deliberately balances Anglophone, Francophone, and Lusophone Africa, the African diaspora, and international partners, with explicit gender-parity targets.
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="container">
+    <div class="eyebrow" data-en="Updates" data-fr="Actualités">Updates</div>
+    <h2 data-en="What is happening" data-fr="Où en sommes-nous">What is happening</h2>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="date">2026-06-29</span>
+        <span class="entry">Public landing site live at <code>afrjour-of-math-dasci.github.io</code>.</span>
+      </div>
+      <div class="news-item">
+        <span class="date">2026-06-03</span>
+        <span class="entry">LaTeX article template v1.5 finalized; ships with the founder dossier.</span>
+      </div>
+      <div class="news-item">
+        <span class="date">2026-05-10</span>
+        <span class="entry">Founding declaration in circulation; lighthouse colleagues being contacted. Editorial board commitments expected by Q3 2026.</span>
+      </div>
     </div>
   </div>
 </section>
