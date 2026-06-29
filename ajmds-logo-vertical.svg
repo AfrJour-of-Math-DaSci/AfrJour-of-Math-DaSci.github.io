@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" role="img" aria-label="AJMDS — African Journal of Mathematics and Data Science">
+  <title>AJMDS — African Journal of Mathematics and Data Science</title>
+
+  <image href="ajmds-seal-africa.svg" x="100" y="60" width="300" height="300"/>
+
+  <text x="250" y="455" font-family="Instrument Serif, Georgia, 'Times New Roman', serif" font-size="92" fill="#8a3324" text-anchor="middle" textLength="360" lengthAdjust="spacing">AJMDS</text>
+
+  <line x1="80" y1="500" x2="232" y2="500" stroke="#b07e15" stroke-width="0.8"/>
+  <polygon points="250,491 261,500 250,509 239,500" fill="#b07e15"/>
+  <line x1="268" y1="500" x2="420" y2="500" stroke="#b07e15" stroke-width="0.8"/>
+
+  <text x="250" y="540" font-family="Instrument Serif, Georgia, 'Times New Roman', serif" font-size="18" fill="#5a5a5a" text-anchor="middle" textLength="360" lengthAdjust="spacing">AFRICAN JOURNAL OF MATHEMATICS AND DATA SCIENCE</text>
+
+  <text x="250" y="580" font-family="IBM Plex Mono, Menlo, monospace" font-size="11" fill="#5a5a5a" text-anchor="middle" letter-spacing="3">DIAMOND OPEN ACCESS · EST. MMXXVII</text>
+</svg>

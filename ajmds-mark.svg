@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="AJMDS journal seal">
+  <title>AJMDS — African Journal of Mathematics and Data Science</title>
+  <desc>Academic seal: outer and inner rings; the full journal name inscribed along a 240-degree arc; AJMDS wordmark prominently centered inside the circle; African continent silhouette (sourced from Wikimedia Commons) below the wordmark; year MMXXVII at the bottom on a hairline plinth.</desc>
+
+  <defs>
+    <path id="ajmdsLongArc" d="M 13.6 71 A 42 42 0 1 0 86.4 71" fill="none"/>
+  </defs>
+
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#8a3324" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="40" fill="none" stroke="#8a3324" stroke-width="0.4"/>
+
+  <text font-family="Instrument Serif, Georgia, 'Times New Roman', serif" font-size="5.5" fill="#8a3324">
+    <textPath href="#ajmdsLongArc" startOffset="50%" text-anchor="middle">
+      AFRICAN JOURNAL OF MATHEMATICS AND DATA SCIENCE
+    </textPath>
+  </text>
+
+  <text x="50" y="38" font-family="Instrument Serif, Georgia, 'Times New Roman', serif" font-size="14" fill="#8a3324" text-anchor="middle" letter-spacing="1.5">AJMDS</text>
+
+  <g transform="translate(50 56) scale(0.42) translate(-47.5 -55.1)">
+    <path d="M33.38,26.56L32.30,26.73L31.42,26.24L30.60,27.74L28.94,28.85L28.19,31.43L27.15,32.42L26.06,32.78L23.77,36.21L22.81,38.48L23.42,39.20L23.17,39.92L23.46,41.29L22.97,43.05L22.42,43.69L22.82,44.50L23.03,44.27L22.90,44.53L23.19,44.72L22.98,44.80L23.61,44.82L22.79,44.91L23.00,45.08L22.83,45.46L23.52,45.57L22.82,45.75L23.51,46.25L24.04,46.08L23.80,46.66L24.41,47.00L24.39,47.41L25.41,48.46L25.35,48.90L25.56,48.86L25.31,48.98L25.99,49.95L29.29,52.36L32.14,51.62L33.58,52.08L35.39,51.07L35.68,51.22L35.85,51.00L35.48,50.54L35.94,50.93L37.03,50.61L38.34,50.80L38.97,51.35L39.03,51.98L39.52,52.48L39.94,52.23L39.99,52.43L39.97,52.13L40.70,52.28L41.32,52.02L41.64,52.61L42.12,52.64L42.37,54.21L41.88,55.00L42.25,55.18L41.90,55.64L42.31,55.89L41.91,55.86L41.49,56.78L42.03,57.38L41.64,57.15L42.10,58.03L43.98,60.06L43.98,60.85L44.80,60.92L44.06,61.19L44.83,63.06L44.58,63.49L45.15,65.67L44.18,67.32L43.64,69.25L43.65,70.99L45.59,74.84L45.91,77.97L48.10,82.49L48.18,83.06L47.86,83.40L48.16,84.56L49.28,85.00L51.13,84.37L53.28,84.37L54.64,83.69L56.54,81.91L58.27,79.70L58.65,77.38L60.59,76.20L60.73,74.57L60.19,72.41L60.62,72.34L61.84,70.97L63.41,70.19L64.55,68.99L64.81,68.14L64.72,64.94L64.42,64.91L64.60,64.74L64.16,64.29L63.83,63.04L63.99,61.79L63.51,60.89L63.72,59.87L63.94,59.90L65.05,57.70L65.49,57.54L67.06,55.42L70.16,52.42L72.18,48.33L72.30,47.45L72.58,47.39L72.46,46.19L67.68,47.38L66.59,46.43L66.18,46.41L66.74,46.02L66.54,45.42L65.11,43.93L63.78,43.06L63.12,41.14L62.11,40.12L61.61,37.60L60.67,36.90L60.85,36.11L58.36,31.80L58.30,31.12L58.94,32.38L59.59,32.95L59.92,31.56L59.36,29.96L57.96,30.15L57.18,29.74L55.65,30.34L54.04,29.82L52.84,29.92L52.80,29.41L50.51,28.65L49.47,29.16L49.36,30.49L48.60,30.81L47.63,30.19L46.51,29.96L45.89,29.04L43.41,28.59L43.04,28.05L42.61,28.00L42.42,27.52L43.09,26.63L42.67,25.92L43.05,25.22L42.55,25.43L42.33,25.03L41.19,25.58L41.39,25.37L39.96,25.21L36.21,25.68L33.94,26.90Z" fill="#8a3324"/>
+    <path d="M66.27,74.42L66.76,76.87L67.58,77.35L68.89,76.85L70.91,71.15L71.22,68.94L71.49,69.27L71.81,68.89L71.11,66.14L70.65,67.10L69.99,67.43L70.03,68.24L69.59,68.31L69.27,68.97L69.28,68.76L68.84,69.28L67.48,69.51L66.99,70.76L67.23,72.71Z" fill="#8a3324"/>
+  </g>
+
+  <line x1="44" y1="74" x2="56" y2="74" stroke="#8a3324" stroke-width="0.5"/>
+
+  <text x="50" y="80" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="4.5" fill="#8a3324" letter-spacing="1.8">MMXXVII</text>
+</svg>

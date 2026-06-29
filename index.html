@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AJMDS — African Journal of Mathematics and Data Science</title>
+<link rel="icon" type="image/svg+xml" href="ajmds-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --cream: #faf6ec;
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --line: #ece8da;
+  --line-strong: #d8d4ca;
+
+  --burgundy: #8a3324;
+  --burgundy-soft: #c2745f;
+  --green: #2d5a3f;
+  --green-soft: #7ba38a;
+  --orange: #b8531a;
+  --orange-soft: #d99166;
+  --gold: #b07e15;
+  --gold-soft: #d8b463;
+}
+:root.dark {
+  --bg: #161412;
+  --cream: #221f1c;
+  --ink: #f5f0e6;
+  --muted: #a8a8a8;
+  --line: #3a3631;
+  --line-strong: #4a4540;
+
+  --burgundy: #d18a7a;
+  --burgundy-soft: #e0a89a;
+  --green: #7ba38a;
+  --green-soft: #9bc1a6;
+  --orange: #d99166;
+  --orange-soft: #e6ad8a;
+  --gold: #d8b463;
+  --gold-soft: #e8cc8e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+/* Header */
+header {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  font-size: 14px;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+header .container { display: flex; justify-content: space-between; align-items: center; }
+.brand {
+  display: block;
+  line-height: 0;
+}
+.brand img { display: block; height: 52px; width: auto; }
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 14px;
+}
+nav a:hover { color: var(--burgundy); }
+.lang { margin-left: 28px; font-size: 13px; }
+.lang span { font-weight: 600; }
+.lang a { color: var(--muted); margin-left: 6px; text-decoration: none; }
+.lang a:hover { color: var(--burgundy); }
+
+/* Hero — the one cream band */
+.hero {
+  padding: 64px 0 90px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 620px;
+  height: 620px;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-watermark img { width: 100%; height: 100%; display: block; }
+:root.dark .hero-watermark { opacity: 0.14; }
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 56px;
+  gap: 24px;
+}
+.hero h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  margin-bottom: 28px;
+  max-width: 880px;
+}
+.hero h1 em { color: var(--burgundy); font-style: italic; }
+.hero .tag {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  max-width: 720px;
+  line-height: 1.55;
+}
+.issn-chip {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  padding: 10px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  align-self: center;
+}
+.issn-chip strong { color: var(--burgundy); font-weight: 500; }
+.issn-chip .sep { color: var(--line-strong); }
+
+.emblem {
+  width: 124px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.emblem svg, .emblem img { display: block; margin: 0 auto; width: 104px; height: 104px; }
+.emblem .caption {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.hero .meta {
+  display: flex;
+  gap: 36px;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 56px;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 24px;
+}
+.hero .meta strong { color: var(--ink); font-weight: 500; }
+
+/* Sections */
+section { padding: 90px 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--burgundy);
+  margin-bottom: 14px;
+}
+h2 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
+}
+p { max-width: 720px; margin-bottom: 16px; line-height: 1.65; }
+
+/* Application areas — color-coded ribbon (green=earth/life, orange=society) */
+.areas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.area {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 32px 28px 36px;
+  position: relative;
+  background: var(--bg);
+}
+.area:nth-child(2n) { border-right: none; }
+.area::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 5px;
+  background: var(--line-strong);
+}
+.area.green::before { background: var(--green); }
+.area.orange::before { background: var(--orange); }
+.area .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+.area.green .num { color: var(--green); }
+.area.orange .num { color: var(--orange); }
+.area .name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.area .desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Legend strip under the areas */
+.legend {
+  display: flex;
+  gap: 28px;
+  margin-top: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend .sw { width: 10px; height: 10px; display: inline-block; }
+.sw.green { background: var(--green); }
+.sw.orange { background: var(--orange); }
+.sw.gold { background: var(--gold); }
+.sw.burgundy { background: var(--burgundy); }
+
+/* Editorial sections grid */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.sec-card {
+  background: transparent;
+  padding: 0;
+  border-right: none;
+  border-bottom: none;
+  perspective: 1200px;
+  min-height: 240px;
+  cursor: pointer;
+  outline: none;
+}
+.sec-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  transition: transform 0.55s ease;
+  transform-style: preserve-3d;
+}
+.sec-card:hover .sec-card-inner,
+.sec-card:focus-visible .sec-card-inner,
+.sec-card.flipped .sec-card-inner {
+  transform: rotateY(180deg);
+}
+.sec-card-front, .sec-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 32px 28px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.sec-card-front { background: var(--bg); }
+.sec-card-back {
+  background: var(--ink);
+  color: var(--cream);
+  transform: rotateY(180deg);
+  justify-content: space-between;
+  border-right-color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.sec-card-back .label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.sec-card-back .heading {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 22px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: var(--cream);
+}
+.sec-card-back .meta-text {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+.sec-card-back .back-cta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  text-decoration: none;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+  align-self: stretch;
+  transition: color 0.15s;
+}
+.sec-card-back .back-cta:hover { color: var(--cream); }
+.sec-card .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.sec-card.gold .num { color: var(--gold); }
+.sec-card.burgundy .num { color: var(--burgundy); }
+.sec-card h4 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.sec-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Editorial board placeholder */
+.board-note {
+  background: var(--cream);
+  border-left: 3px solid var(--burgundy);
+  padding: 28px 32px;
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 16px;
+  max-width: 760px;
+  line-height: 1.7;
+}
+.board-note strong { color: var(--ink); }
+
+/* CTA */
+.cta {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 56px 48px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cta .hd {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-soft);
+  margin-bottom: 10px;
+}
+.cta .ttl {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 26px;
+  line-height: 1.25;
+  max-width: 480px;
+}
+.cta-form {
+  display: flex;
+  gap: 0;
+  min-width: 360px;
+  flex: 1;
+  max-width: 460px;
+}
+.cta-form input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--cream);
+  border-right: none;
+  color: var(--cream);
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+.cta-form input::placeholder { color: rgba(250, 246, 236, 0.5); }
+.cta-form input:focus { border-color: var(--gold-soft); }
+.cta-form button {
+  background: var(--gold);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+  padding: 14px 22px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.cta-form button:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+
+.cta-secondary {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.cta-secondary a {
+  color: var(--burgundy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--burgundy);
+  padding-bottom: 2px;
+}
+.cta-secondary a:hover { color: var(--burgundy-soft); border-bottom-color: var(--burgundy-soft); }
+
+/* Footer */
+footer {
+  padding: 56px 0 40px;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+footer a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line-strong); }
+footer a:hover { color: var(--burgundy); text-decoration-color: var(--burgundy); }
+.foot-brand strong { color: var(--burgundy); font-weight: 500; }
+.foot-brand { text-align: right; }
+.foot-brand img { display: block; max-width: 320px; width: 100%; margin-bottom: 14px; margin-left: auto; }
+.foot-meta { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 720px) {
+  .hero { padding: 80px 0 60px; }
+  .hero h1 { font-size: 40px; }
+  h2 { font-size: 28px; }
+  .areas { grid-template-columns: 1fr; }
+  .area { border-right: none !important; }
+  .hero-top { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 40px; }
+  .emblem { text-align: left; }
+  .emblem svg { margin: 0; }
+  .cta { padding: 40px 28px; }
+  .cta-form { min-width: 0; width: 100%; }
+  nav a { display: none; }
+  .lang { display: none; }
+  .legend { flex-wrap: wrap; gap: 14px 20px; }
+}
+
+/* === Section card icons === */
+.sec-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  color: var(--burgundy);
+}
+.sec-card.gold .sec-icon { color: var(--gold); }
+.sec-card.burgundy .sec-icon { color: var(--burgundy); }
+.sec-icon svg { width: 100%; height: 100%; display: block; }
+
+/* === Dark mode toggle === */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  padding: 6px 8px;
+  margin-left: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  color: var(--ink);
+  transition: border-color 0.15s, color 0.15s;
+}
+.theme-toggle:hover { border-color: var(--burgundy); color: var(--burgundy); }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+:root:not(.dark) .theme-toggle .moon-icon { display: none; }
+:root.dark .theme-toggle .sun-icon { display: none; }
+
+/* === Language switcher === */
+.lang {
+  margin-left: 24px;
+  font-size: 13px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang a {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 2px;
+  transition: color 0.15s, background 0.15s;
+}
+.lang a.active {
+  color: var(--ink);
+  font-weight: 600;
+}
+.lang a:hover { color: var(--burgundy); }
+.lang .sep { color: var(--line-strong); }
+
+/* === Dark mode adjustments === */
+:root.dark .brand img,
+:root.dark .foot-brand img,
+:root.dark .emblem img {
+  filter: brightness(0.95) saturate(1.1);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="#" class="brand" aria-label="AJMDS — African Journal of Mathematics and Data Science">
+      <img src="ajmds-logo.svg" alt="">
+    </a>
+    <nav>
+      <a href="#scope" data-en="Scope" data-fr="Portée">Scope</a>
+      <a href="#sections" data-en="Sections" data-fr="Sections">Sections</a>
+      <a href="#board" data-en="Editorial Board" data-fr="Comité éditorial">Editorial Board</a>
+      <a href="#authors" data-en="Authors" data-fr="Auteurs">Authors</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <span class="lang">
+        <a href="#" id="langEN" class="active">EN</a>
+        <span class="sep">·</span>
+        <a href="#" id="langFR">FR</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-watermark" aria-hidden="true">
+    <img src="ajmds-mark.svg" alt="">
+  </div>
+  <div class="container">
+    <div class="hero-top">
+      <div class="issn-chip">
+        <span><strong>Vol. 1 · No. 1</strong></span>
+        <span class="sep">|</span>
+        <span>Q1 2027</span>
+        <span class="sep">|</span>
+        <span>ISSN pending</span>
+      </div>
+    </div>
+    <h1 data-en='The mathematical and computational sciences, <em>rooted in African challenges.</em>' data-fr='Les sciences mathématiques et computationnelles, <em>ancrées dans les défis africains.</em>'>The mathematical and computational sciences, <em>rooted in African challenges.</em></h1>
+    <p class="tag" data-en="An international, peer-reviewed journal in Diamond Open Access. We cover the mathematical and computational sciences — pure and applied math, statistics, theoretical computer science, optimization, ML and AI, scientific software, data science — and we treat African problems and African data as a primary focus, not a footnote." data-fr="Une revue internationale à comité de lecture, en libre accès « diamant ». Nous couvrons les sciences mathématiques et computationnelles — mathématiques pures et appliquées, statistique, informatique théorique, optimisation, ML et IA, génie logiciel scientifique, science des données — et nous traitons les problèmes et les données africains comme un axe central, pas comme une note de bas de page.">An international, peer-reviewed journal in Diamond Open Access. We cover the mathematical and computational sciences — pure and applied math, statistics, theoretical computer science, optimization, ML and AI, scientific software, data science — and we treat African problems and African data as a primary focus, not a footnote.</p>
+    <div class="meta">
+      <span><strong>License</strong> &nbsp;&nbsp; CC BY 4.0</span>
+      <span><strong>Model</strong> &nbsp;&nbsp; Diamond Open Access</span>
+      <span><strong>Languages</strong> &nbsp;&nbsp; English · French</span>
+      <span><strong>Time to first decision</strong> &nbsp;&nbsp; 16 weeks (target)</span>
+    </div>
+  </div>
+</div>
+
+<section id="scope">
+  <div class="container">
+    <div class="eyebrow" data-en="Aims &amp; Scope" data-fr="Objectifs et portée">Aims &amp; Scope</div>
+    <h2 data-en="What we publish" data-fr="Ce que nous publions">What we publish</h2>
+    <p>The work we print has to be methodologically rigorous and societally relevant — across pure and applied math, statistics, theoretical computer science, optimization, ML and AI, scientific software, and data science. We take full research articles, short notes, surveys, software papers, and data papers. Every submission has to show a clear mathematical, statistical, algorithmic, or computational contribution. Purely descriptive applied work is out of scope.</p>
+    <p>The journal runs bilingually: English is primary, French submissions are accepted with an extended English abstract.</p>
+
+    <div class="areas">
+      <div class="area green">
+        <div class="num">01 · EARTH &amp; LIFE</div>
+        <div class="name">Public health &amp; mathematical epidemiology</div>
+        <div class="desc">Compartmental and spatial models, surveillance analytics, infectious-disease forecasting under data scarcity.</div>
+      </div>
+      <div class="area orange">
+        <div class="num">02 · SOCIETY</div>
+        <div class="name">Education &amp; learning analytics</div>
+        <div class="desc">Cognitive modeling, item response theory, evaluation of educational interventions and learning trajectories.</div>
+      </div>
+      <div class="area green">
+        <div class="num">03 · EARTH &amp; LIFE</div>
+        <div class="name">Agriculture &amp; remote sensing</div>
+        <div class="desc">Earth observation, precision agriculture, yield prediction, food-security analytics.</div>
+      </div>
+      <div class="area green">
+        <div class="num">04 · EARTH &amp; LIFE</div>
+        <div class="name">Climate &amp; environment</div>
+        <div class="desc">Regional climate modeling, downscaling, hydrology, ecosystem and natural-resource management.</div>
+      </div>
+      <div class="area orange">
+        <div class="num">05 · SOCIETY</div>
+        <div class="name">Inclusive finance &amp; mobile money</div>
+        <div class="desc">Credit scoring under sparse data, index-based insurance, digital-finance behavioral analytics.</div>
+      </div>
+      <div class="area orange">
+        <div class="num">06 · SOCIETY</div>
+        <div class="name">Data-driven public policy</div>
+        <div class="desc">Causal inference for program evaluation, algorithmic governance, accountability of decision systems.</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><span class="sw green"></span> Earth &amp; Life sciences</span>
+      <span><span class="sw orange"></span> Society &amp; economy</span>
+      <span><span class="sw gold"></span> Methodological foundations</span>
+      <span><span class="sw burgundy"></span> Cross-cutting</span>
+    </div>
+  </div>
+</section>
+
+<section id="sections">
+  <div class="container">
+    <div class="eyebrow" data-en="Editorial sections" data-fr="Sections éditoriales">Editorial sections</div>
+    <h2 data-en="Seven sections, one rigor standard." data-fr="Sept sections, un seul standard de rigueur.">Seven sections, one rigor standard.</h2>
+    <p>Each section is led by one section editor with 2 to 4 associate editors. Every paper is evaluated against the same methodological bar, regardless of application domain.</p>
+
+    <div class="sections-grid">
+      <div class="sec-card gold" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="30" cy="30" r="22"/><polygon points="30,12 47,40 13,40"/></svg></div>
+            <div class="num">SEC 01 · FOUNDATIONS</div>
+            <h4>Pure and Applied Mathematics</h4>
+            <p>Algebra, analysis, geometry, topology, number theory, combinatorics, mathematical logic — and applied mathematics across the broader sciences.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 01 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card gold" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M 5 45 Q 16 45 21 36 Q 26 22 30 16 Q 34 22 39 36 Q 44 45 55 45"/><line x1="5" y1="45" x2="55" y2="45" stroke-width="1"/><line x1="30" y1="16" x2="30" y2="45" stroke-width="0.8" stroke-dasharray="2 2"/></svg></div>
+            <div class="num">SEC 02 · FOUNDATIONS</div>
+            <h4>Probability, Statistics, and Statistical Learning</h4>
+            <p>Probability theory, mathematical statistics, computational statistics, Bayesian inference, causal inference, generalization theory.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 02 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card gold" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="30" cy="30" rx="22" ry="14"/><ellipse cx="30" cy="30" rx="16" ry="10"/><ellipse cx="30" cy="30" rx="10" ry="6"/><circle cx="30" cy="30" r="2" fill="currentColor"/></svg></div>
+            <div class="num">SEC 03 · FOUNDATIONS</div>
+            <h4>Optimization, Numerical Methods, and Scientific Computing</h4>
+            <p>Convex and non-convex optimization, stochastic methods, numerical linear algebra, scientific computing, randomized algorithms.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 03 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card gold" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><circle cx="30" cy="14" r="3.5"/><circle cx="18" cy="30" r="3"/><circle cx="42" cy="30" r="3"/><circle cx="12" cy="46" r="2.5"/><circle cx="24" cy="46" r="2.5"/><circle cx="36" cy="46" r="2.5"/><circle cx="48" cy="46" r="2.5"/></g><g stroke="currentColor" stroke-width="1" fill="none"><line x1="30" y1="14" x2="18" y2="30"/><line x1="30" y1="14" x2="42" y2="30"/><line x1="18" y1="30" x2="12" y2="46"/><line x1="18" y1="30" x2="24" y2="46"/><line x1="42" y1="30" x2="36" y2="46"/><line x1="42" y1="30" x2="48" y2="46"/></g></svg></div>
+            <div class="num">SEC 04 · FOUNDATIONS</div>
+            <h4>Theoretical Computer Science and Algorithms</h4>
+            <p>Algorithms, complexity, formal methods, cryptography, programming-language theory, computability.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 04 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card gold" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="0.5" opacity="0.5"><line x1="10" y1="15" x2="30" y2="10"/><line x1="10" y1="15" x2="30" y2="23"/><line x1="10" y1="30" x2="30" y2="10"/><line x1="10" y1="30" x2="30" y2="23"/><line x1="10" y1="30" x2="30" y2="37"/><line x1="10" y1="30" x2="30" y2="50"/><line x1="10" y1="45" x2="30" y2="37"/><line x1="10" y1="45" x2="30" y2="50"/><line x1="30" y1="10" x2="50" y2="20"/><line x1="30" y1="23" x2="50" y2="20"/><line x1="30" y1="23" x2="50" y2="40"/><line x1="30" y1="37" x2="50" y2="20"/><line x1="30" y1="37" x2="50" y2="40"/><line x1="30" y1="50" x2="50" y2="40"/></g><g fill="currentColor"><circle cx="10" cy="15" r="2.5"/><circle cx="10" cy="30" r="2.5"/><circle cx="10" cy="45" r="2.5"/><circle cx="30" cy="10" r="2.5"/><circle cx="30" cy="23" r="2.5"/><circle cx="30" cy="37" r="2.5"/><circle cx="30" cy="50" r="2.5"/><circle cx="50" cy="20" r="2.5"/><circle cx="50" cy="40" r="2.5"/></g></svg></div>
+            <div class="num">SEC 05 · FOUNDATIONS</div>
+            <h4>Machine Learning and Artificial Intelligence</h4>
+            <p>Deep learning, reinforcement learning, foundation models, alignment, geometric and equivariant ML, learning under data scarcity.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 05 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card burgundy" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M 22 14 L 23 13 L 26 13 L 30 12 L 34 13 L 37 13 L 39 14 L 40 15 L 41 17 L 43 19 L 44 22 L 43 24 L 44 27 L 46 30 L 44 33 L 41 36 L 39 40 L 37 44 L 36 47 L 34 49 L 32 50 L 30 49 L 28 46 L 26 43 L 25 39 L 23 35 L 22 31 L 22 27 L 20 23 L 18 19 L 19 16 L 21 14 Z"/></g></svg></div>
+            <div class="num">SEC 06 · CROSS-CUTTING</div>
+            <h4>Mathematical Sciences for Society</h4>
+            <p>Methodologically rigorous applications across health, education, agriculture, climate, finance, and public policy — anchored in African and Global-South contexts.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 06 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+      <div class="sec-card burgundy" tabindex="0">
+        <div class="sec-card-inner">
+          <div class="sec-card-front">
+            <div class="sec-icon" aria-hidden="true"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M 20 18 L 10 30 L 20 42"/><line x1="35" y1="14" x2="25" y2="46" stroke-width="1.6"/><path d="M 40 18 L 50 30 L 40 42"/></svg></div>
+            <div class="num">SEC 07 · CROSS-CUTTING</div>
+            <h4>Software and Data Papers</h4>
+            <p>Citable software releases and curated datasets with rigorous documentation, reproducibility audits, and impact statements.</p>
+          </div>
+          <div class="sec-card-back">
+            <div>
+              <div class="label">SEC 07 · Status</div>
+              <div class="heading">Section editor: to be announced</div>
+              <div class="meta-text">Accepting submissions from launch. Founding editor confirmed in the year-1 cohort.</div>
+            </div>
+            <a class="back-cta" href="#authors">Submit to this section →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="board">
+  <div class="container">
+    <div class="eyebrow" data-en="Editorial Board" data-fr="Comité éditorial">Editorial Board</div>
+    <h2 data-en="Founding members" data-fr="Membres fondateurs">Founding members</h2>
+    <div class="board-note">
+      <strong>The founding editorial committee will be announced in Q3 2026.</strong> The journal is led by an Editor-in-Chief, two Co-Editors covering the methodological and applied sides, and 15 to 20 Associate Editors organized by section, with an international Advisory Board sitting alongside.
+      <br><br>
+      The committee deliberately balances Anglophone, Francophone, and Lusophone Africa, the African diaspora, and international partners, with explicit gender-parity targets.
+    </div>
+  </div>
+</section>
+
+<section id="authors">
+  <div class="container">
+    <div class="eyebrow" data-en="For authors" data-fr="Pour les auteurs">For authors</div>
+    <h2 data-en="Submission" data-fr="Soumission">Submission</h2>
+    <p>Submissions open in Q4 2026 via Open Journal Systems. We aim for a 16-week median from submission to first decision. Double-blind, two reviewers per manuscript.</p>
+    <p>At acceptance, authors deposit data and code in a citable open repository (Zenodo or institutional). Articles are published under CC BY 4.0; authors keep copyright. No fees for authors, no fees for readers.</p>
+
+    <div class="cta">
+      <div>
+        <div class="hd">Be notified</div>
+        <div class="ttl">Submissions open Q4 2026. Be the first to know when the journal launches.</div>
+      </div>
+      <form class="cta-form" action="#" method="post" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you ✓';">
+        <input type="email" name="email" placeholder="your.name@institution.org" required>
+        <button type="submit">Notify me</button>
+      </form>
+    </div>
+    <div class="cta-secondary">
+      Author guidelines and LaTeX template <a href="#">available now →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>
+      <a href="#scope">Aims &amp; Scope</a> &nbsp;·&nbsp;
+      <a href="#authors">Author guidelines</a> &nbsp;·&nbsp;
+      <a href="#">Editorial policies</a> &nbsp;·&nbsp;
+      <a href="#">Contact</a>
+    </div>
+    <div class="foot-brand">
+      <img src="ajmds-logo.svg" alt="AJMDS — African Journal of Mathematics and Data Science" width="320">
+      <div class="foot-meta">Diamond Open Access · CC BY 4.0 · ISSN: pending</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // === Flip cards ===
+  document.querySelectorAll('.sec-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.back-cta')) return;
+      card.classList.toggle('flipped');
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+
+  // === Dark mode toggle ===
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('ajmds-theme');
+  if (savedTheme === 'dark') root.classList.add('dark');
+  themeToggle.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('ajmds-theme', root.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // === Language switcher ===
+  const langEN = document.getElementById('langEN');
+  const langFR = document.getElementById('langFR');
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.dataset[lang];
+      if (text !== undefined) el.innerHTML = text;
+    });
+    langEN.classList.toggle('active', lang === 'en');
+    langFR.classList.toggle('active', lang === 'fr');
+    localStorage.setItem('ajmds-lang', lang);
+  }
+  langEN.addEventListener('click', (e) => { e.preventDefault(); setLanguage('en'); });
+  langFR.addEventListener('click', (e) => { e.preventDefault(); setLanguage('fr'); });
+  const savedLang = localStorage.getItem('ajmds-lang');
+  if (savedLang === 'fr') setLanguage('fr');
+</script>
+
+</body>
+</html>
